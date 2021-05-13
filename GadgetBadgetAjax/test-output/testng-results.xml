@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1362" started-at="2021-04-23T10:15:19Z" finished-at="2021-04-23T10:15:21Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1362" started-at="2021-04-23T10:15:19Z" finished-at="2021-04-23T10:15:21Z">
+      <class name="product.testing.ProductTests">
+        <test-method status="PASS" signature="test_DELETE()[pri:0, instance:product.testing.ProductTests@204f30ec]" name="test_DELETE" duration-ms="906" started-at="2021-04-23T10:15:19Z" finished-at="2021-04-23T10:15:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_DELETE -->
+        <test-method status="PASS" signature="test_GET()[pri:0, instance:product.testing.ProductTests@204f30ec]" name="test_GET" duration-ms="314" started-at="2021-04-23T10:15:20Z" finished-at="2021-04-23T10:15:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_GET -->
+        <test-method status="PASS" signature="test_POST()[pri:0, instance:product.testing.ProductTests@204f30ec]" name="test_POST" duration-ms="64" started-at="2021-04-23T10:15:20Z" finished-at="2021-04-23T10:15:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_POST -->
+        <test-method status="PASS" signature="test_PUT()[pri:0, instance:product.testing.ProductTests@204f30ec]" name="test_PUT" duration-ms="61" started-at="2021-04-23T10:15:20Z" finished-at="2021-04-23T10:15:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_PUT -->
+      </class> <!-- product.testing.ProductTests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
