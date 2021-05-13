@@ -11,22 +11,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import product.model.IProduct;
 import product.model.ProductImpl;
 
 /**
- * Servlet implementation class ProductServlet
+ * Servlet implementation class ProductsAPI
  */
-@WebServlet(name = "ProductServletAPI", urlPatterns = { "/ProductServletAPI" })
-public class ProductServletAPI extends HttpServlet {
+@WebServlet("/ProductsAPI")
+public class ProductsAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	IProduct product = new ProductImpl();
+	ProductImpl product = new ProductImpl();
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ProductServletAPI() {
+	public ProductsAPI() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -47,10 +46,12 @@ public class ProductServletAPI extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("Got insert");
+
 		String output = product.insertProduct(request.getParameter("productTitle"),
 				request.getParameter("productDescription"), request.getParameter("productType"),
-				request.getParameter("productCategory"), Integer.parseInt(request.getParameter("researcherID")));
-
+				request.getParameter("productCategory"), Integer.parseInt(request.getParameter("researcherId")));
+		
 		response.getWriter().write(output);
 	}
 
@@ -76,6 +77,7 @@ public class ProductServletAPI extends HttpServlet {
 		response.getWriter().write(output);
 	}
 
+	// Convert request parameters to a Map
 	private static Map getParasMap(HttpServletRequest request) {
 		Map<String, String> map = new HashMap<String, String>();
 		try {

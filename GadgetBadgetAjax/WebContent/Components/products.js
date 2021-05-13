@@ -57,7 +57,8 @@ function onItemSaveComplete(response, status){
  		$("#alertError").text("Unknown error while saving.."); 
  		$("#alertError").show(); 
  	} 
- 	$("#hidItemIDSave").val(""); 
+ 	$("#hidItemIDSave").val("");
+	$("#researcherId").prop("disabled",false); 
  	$("#formProduct")[0].reset(); 
 }
 
@@ -68,8 +69,8 @@ $(document).on("click", ".btnUpdate", function(event)
  	$("#productType").val($(this).closest("tr").find('td:eq(1)').text()); 
  	$("#productDescription").val($(this).closest("tr").find('td:eq(2)').text()); 
  	$("#productCategory").val($(this).closest("tr").find('td:eq(3)').text()); 
-	$("#researcherID").val($(this).closest("tr").find('td:eq(4)').text()); 
-	$("#researcherID").prop("disabled",true);
+	$("#researcherId").val($(this).closest("tr").find('td:eq(4)').text()); 
+	$("#researcherId").prop("disabled",true);
 });
 
 $(document).on("click", ".btnRemove", function(event)
@@ -125,6 +126,10 @@ function validateProductForm() {
 	// Product Category
 	if ($("#productCategory").val().trim() == "") { 
  		return "Insert Product Category."; 
+ 	} 
+
+	if ($("#researcherId").val().trim() == "") { 
+ 		return "Insert Researcher ID."; 
  	} 
 	
 	return true; 

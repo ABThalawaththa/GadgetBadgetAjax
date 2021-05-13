@@ -84,9 +84,10 @@ public class ProductImpl implements IProduct {
 			preparedStmt.setInt(5, researcherId);
 			// execute the statement
 			preparedStmt.execute();
-			output = "Inserted successfully";
+			String newProducts = readAllProducts();
+			output = "{\"status\":\"success\", \"data\": \"" + newProducts + "\"}";
 		} catch (Exception e) {
-			output = "Error while inserting";
+			output = "{\"status\":\"error\", \"data\": \"Error while inserting the product.\"}";
 			log.log(Level.SEVERE, e.getMessage());
 		} finally {
 			/*

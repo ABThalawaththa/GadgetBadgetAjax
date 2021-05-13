@@ -27,7 +27,7 @@ pageEncoding="ISO-8859-1"%>
  <input id="productCategory" name="productCategory" type="text" 
  class="form-control form-control-sm">
  <br> Researcher ID: 
- <input id="researcherID" name="researcherID" type="text" 
+ <input id="researcherId" name="researcherId" type="text" 
  class="form-control form-control-sm">
  <br>
  <input id="btnSave" name="btnSave" type="button" value="Save" 
