@@ -85,7 +85,6 @@ public class ProductsAPI extends HttpServlet {
 			Scanner scanner = new Scanner(request.getInputStream(), "UTF-8");
 			String queryString = scanner.hasNext() ? scanner.useDelimiter("\\A").next() : "";
 			scanner.close();
-			System.out.print(queryString);
 			String[] params = queryString.split("&");
 			for (String param : params) {
 				String[] p = param.split("=");

@@ -15,7 +15,7 @@ import org.jsoup.*;
 import org.jsoup.parser.*;
 
 @Path("/Products")
-public class ProductService {
+public class ProductServiceRestFull {
 
 	IProduct iproduct = new ProductImpl();
 
@@ -24,14 +24,10 @@ public class ProductService {
 	//To get all the products
 	@GET
 	@Path("/")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.TEXT_HTML)
 	public String getAllProducts() {
 
-		GsonBuilder gb = new GsonBuilder();
-		gb.setPrettyPrinting();
-
-		Gson gson = gb.create();
-		return gson.toJson(iproduct.getAllProducts());
+		return iproduct.readAllProducts();
 	}
 
 	//To get specific product
@@ -92,7 +88,7 @@ public class ProductService {
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_HTML)
-	public String updateProduct(@FormParam("productId") int productId, @FormParam("productTitle") String productTitle,
+	public String updateProduct(@FormParam("productId") String productId, @FormParam("productTitle") String productTitle,
 			@FormParam("productDescription") String productDescription, @FormParam("productType") String productType,
 			@FormParam("productCategory") String productCategory) {
 		return iproduct.updateProduct(productId, productTitle, productDescription, productType, productCategory);
@@ -111,8 +107,8 @@ public class ProductService {
 	@DELETE
 	@Path("/")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces(MediaType.APPLICATION_JSON)
-	public String deleteProduct(@FormParam("productId") int productId) {
+	@Produces(MediaType.TEXT_HTML)
+	public String deleteProduct(@FormParam("productId") String productId) {
 		return iproduct.deleteProduct(productId);
 	}
 
