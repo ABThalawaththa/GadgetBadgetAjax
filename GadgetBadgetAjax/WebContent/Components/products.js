@@ -128,10 +128,12 @@ function validateProductForm() {
  		return "Insert Product Category."; 
  	} 
 
+	// Researcher ID
 	if ($("#researcherId").val().trim() == "") { 
  		return "Insert Researcher ID."; 
  	} 
 
+	// validate whether the researcher id is valid numeric type
 	var researcherID = $("#researcherId").val().trim();
     if (!$.isNumeric(researcherID)) {
         return "Insert a valid researcher ID.";
