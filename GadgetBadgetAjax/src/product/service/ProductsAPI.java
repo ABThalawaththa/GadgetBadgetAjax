@@ -1,6 +1,7 @@
 package product.service;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -63,7 +64,7 @@ public class ProductsAPI extends HttpServlet {
 		Map paras = getParasMap(request);
 		String output = product.updateProduct(paras.get("hidItemIDSave").toString(),
 				paras.get("productTitle").toString(), paras.get("productDescription").toString(),
-				paras.get("productCategory").toString(), paras.get("productType").toString());
+				paras.get("productType").toString(), paras.get("productCategory").toString());
 		response.getWriter().write(output);
 	}
 
@@ -84,10 +85,11 @@ public class ProductsAPI extends HttpServlet {
 			Scanner scanner = new Scanner(request.getInputStream(), "UTF-8");
 			String queryString = scanner.hasNext() ? scanner.useDelimiter("\\A").next() : "";
 			scanner.close();
+			System.out.print(queryString);
 			String[] params = queryString.split("&");
 			for (String param : params) {
 				String[] p = param.split("=");
-				map.put(p[0], p[1]);
+				map.put(p[0], java.net.URLDecoder.decode(p[1], StandardCharsets.UTF_8.name()));
 			}
 		} catch (Exception e) {
 		}

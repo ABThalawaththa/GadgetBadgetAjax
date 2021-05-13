@@ -131,6 +131,11 @@ function validateProductForm() {
 	if ($("#researcherId").val().trim() == "") { 
  		return "Insert Researcher ID."; 
  	} 
+
+	var researcherID = $("#researcherId").val().trim();
+    if (!$.isNumeric(researcherID)) {
+        return "Insert a valid researcher ID.";
+    }
 	
 	return true; 
 }
